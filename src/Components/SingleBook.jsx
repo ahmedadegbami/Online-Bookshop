@@ -1,11 +1,11 @@
 import { Component } from "react";
 import { Card } from "react-bootstrap";
-import CommentArea from "./CommentArea";
+// import CommentArea from "./CommentArea";
 
 class SingleBook extends Component {
-  state = {
-    selected: false,
-  };
+  // state = {
+  //   selected: false,
+  // };
   render() {
     return (
       <>
@@ -13,13 +13,13 @@ class SingleBook extends Component {
           <Card.Img
             variant="top"
             src={this.props.book.img}
-            value={this.state.selected}
-            onClick={() =>
-              this.setState({
-                selected: !this.state.selected,
-              })
-            }
-            style={{ border: this.state.selected ? "2px solid red " : "none" }}
+            // value={this.state.selected}
+            // onClick={() =>
+            //   this.setState({
+            //     selected: !this.state.selected,
+            //   })
+            onClick={() => this.props.changeSelectedBook(this.props.book.asin)}
+            // style={{ border: this.state.selected ? "2px solid red " : "none" }}
           />
           <Card.Body>
             <Card.Title className="text-dark">
@@ -28,7 +28,7 @@ class SingleBook extends Component {
           </Card.Body>
         </Card>
 
-        {this.state.selected && <CommentArea asin={this.props.book.asin} />}
+        {/* {this.state.selected && <CommentArea asin={this.props.book.asin} />} */}
       </>
     );
   }

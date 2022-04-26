@@ -6,9 +6,20 @@ class AddComment extends Component {
     readersComment: {
       comment: "",
       rate: 1,
-      elementId: this.props.bookID,
+      elementId: null,
     },
   };
+
+  componentDidUpdate(PrevProps) {
+    if (PrevProps.asin !== this.props.asin) {
+      this.setState({
+        readersComment: {
+          ...this.state.readersComment,
+          elementId: this.props.asin,
+        },
+      });
+    }
+  }
 
   sendComments = async (e) => {
     e.preventDefault();
